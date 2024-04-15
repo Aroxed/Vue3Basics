@@ -1,21 +1,18 @@
 <template>
-    <div>
-      <h1>Maximum value of counters: {{ maxCounter }}</h1>
-      <div v-for="i in 4" :key="i">
-        <counter-button :initial-value="10" @counter-changed="handleCounterChanged"></counter-button>
-      </div>
+  <div>
+    <h1>Maximum value of counters: {{ maxCounter }}</h1>
+    <div v-for="i in 4" :key="i">
+      <counter-button :index="i - 1"/>
     </div>
+  </div>
 </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  import CounterButton from './CounterButton.vue';
-  
-  const maxCounter = ref(0);
-  
-  function handleCounterChanged(newCounter) {
-    if (newCounter > maxCounter.value) {
-      maxCounter.value = newCounter;
-    }
-  }
-  </script>
+
+<script setup>
+import { computed } from 'vue';
+import { useCounterStore } from '@/stores/counter';
+import CounterButton from './CounterButton.vue';
+
+const counterStore = useCounterStore();
+
+const maxCounter = computed(() => Math.max(...counterStore.counters));
+</script>
