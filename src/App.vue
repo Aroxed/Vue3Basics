@@ -1,11 +1,10 @@
 <script setup>
-//import Counters from './components/Counters.vue'
-import CountersPinia from './components/CountersPinia.vue'
+import Counters from './components/Counters.vue'
 </script>
 
 <template>
   <header>
-    <CountersPinia></CountersPinia>
+    <Counters/>
   </header>
 
 </template>

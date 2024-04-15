@@ -1,23 +1,27 @@
 <template>
+  <div>
     <button @click="incrementCounter">Counter: {{ counter }}</button>
+  </div>
 </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  
-  const props = defineProps({
+
+<script>
+export default {
+  props: {
     initialValue: {
       type: Number,
       default: 0
     }
-  });
-  
-  const counter = ref(props.initialValue);
-  
-  const emit = defineEmits(['counter-changed']);
-  
-  function incrementCounter() {
-    counter.value++;
-    emit('counter-changed', counter.value);
+  },
+  data() {
+    return {
+      counter: this.initialValue
+    }
+  },
+  methods: {
+    incrementCounter() {
+      this.counter++;
+      this.$emit('counter-changed', this.counter);
+    }
   }
-  </script>
+}
+</script>
