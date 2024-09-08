@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Maximum value of counters: {{ maxCounter }}</h1>
+    <h1>The Maximum value of counters: {{ maxCounter }}</h1>
     <div v-for="i in 4" :key="i">
       <counter-button @counter-changed="handleCounterChanged" :initial-value="0"></counter-button>
     </div>
