@@ -13,8 +13,8 @@
     const MAX_BATCH_SIZE = 100;   // Maximum number of events per batch
 
     // Configuration
-    const TRACKER_URL = 'http://localhost'
-    //const TRACKER_URL = 'https://app.productpathpro.com';  // Use correct port
+    //const TRACKER_URL = 'http://localhost'
+    const TRACKER_URL = 'https://app.productpathpro.com';  // Use correct port
     let sessionId = null;
     let events = [];
     let stopFn = null;
